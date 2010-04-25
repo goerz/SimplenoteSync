@@ -167,6 +167,7 @@ sub titleToFilename {
 	
 	# Strip prohibited characters
 	$title =~ s/[:\\\/]/ /g;
+    $title =~ s/ /_/g;
 	
 	$title .= ".$file_extension";
 	
@@ -180,6 +181,7 @@ sub filenameToTitle {
 	
 	$filename = basename ($filename);
 	$filename =~ s/\.$file_extension$//;
+    $filename =~ s/_/ /g;
 	
 	return $filename;
 }
